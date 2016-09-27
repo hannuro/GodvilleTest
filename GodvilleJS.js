@@ -4,16 +4,16 @@
 
 function loadInfo() {
 
-    var haku = document.getElementById("haku").value;
+    var haku = document.getElementById("haku").value; // otetaan haun arvo
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://godvillegame.com/gods/api/" + haku + ".json";
+    var url = "https://godvillegame.com/gods/api/" + haku + ".json"; // apin hakukysely
 
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
             myFunction(myArr);
         }
-        else if(this.status == 404){
+        else if(this.status == 404){ // jos nimellä ei löytynyt ketään
             godNotFound();
         }
     };
@@ -50,14 +50,14 @@ function myFunction(arr) {
     document.getElementById("info").innerHTML = out;
 }
 
-function godNotFound(){
+function godNotFound(){ // jos api kyselyllä ei löytynyt mitään
    var out = "<br>God not found.";
     document.getElementById("info").innerHTML = out;
 }
 
-function handle(e){
+function handle(e){ // hoitaa haun jos formissa painetaan entteriä
     if(e.keyCode === 13){
-        e.preventDefault();
-        loadInfo();
+        e.preventDefault(); // estää normaalin koodin suorittamisen
+        loadInfo(); // suorittaa haun
     }
 }
