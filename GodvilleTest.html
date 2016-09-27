@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>:)</title>
+    <LINK href="GodStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<div id="info"></div>
+<form>
+    Gods name:<br>
+    <input type="text" name="name" id="haku" value="" onkeypress="handle(event)">
+    <input type="button" name="submit" value="Search" onclick="loadInfo()">
+</form>
 
+<table id="info"></table>
 <script src="GodvilleJS.js"></script>
 
 </body>
